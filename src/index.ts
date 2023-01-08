@@ -1,6 +1,18 @@
 /* eslint import/prefer-default-export: 0 */
 export function filterLines(lines: string[], before: string, after: string): string[] {
-  const indexBefore = lines.indexOf(before);
-  const indexAfter = lines.indexOf(after);
-  return lines.slice(indexBefore + 1, indexAfter);
+  let waitingForBeforeLine = true;
+  let foundAfterLine = false;
+
+  return lines.filter((line) => {
+    if (waitingForBeforeLine) {
+      waitingForBeforeLine = line !== before;
+      return false;
+    }
+    foundAfterLine = foundAfterLine || line === after;
+    if (foundAfterLine) {
+      return false;
+    }
+
+    return true;
+  });
 }
