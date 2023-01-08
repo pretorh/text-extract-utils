@@ -15,7 +15,7 @@ describe('text filtering', () => {
 
     it('returns the lines between the `before` and `after` items', () => {
       const filtered = filterLines(lines, 'beginning line', 'block ends');
-      expect(filtered).to.include.ordered.members(['c', 'd']);
+      expect(filtered).to.have.same.members(['c', 'd']);
     });
   });
 });
