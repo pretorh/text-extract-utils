@@ -13,6 +13,12 @@ module.exports = {
     'node_modules/*',
   ],
   overrides: [
+    {
+      files: 'test/*',
+      rules: {
+        'import/extensions': 'off',
+      },
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
