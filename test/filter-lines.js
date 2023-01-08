@@ -17,5 +17,10 @@ describe('text filtering', () => {
       const filtered = filterLines(lines, 'beginning line', 'block ends');
       expect(filtered).to.have.same.members(['c', 'd']);
     });
+
+    it('returns the lines between the `before` and `after` RegExp', () => {
+      const filtered = filterLines(lines, /^begin/, /ends$/);
+      expect(filtered).to.have.same.members(['c', 'd']);
+    });
   });
 });
