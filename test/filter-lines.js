@@ -1,6 +1,6 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
-import { filterLines } from '../dist/index.js';
+const { describe, it } = require('mocha');
+const { expect } = require('chai');
+const { filterLines } = require('../dist');
 
 describe('text filtering', () => {
   describe('filterLines', () => {
