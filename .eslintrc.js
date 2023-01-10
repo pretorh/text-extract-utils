@@ -1,10 +1,12 @@
 module.exports = {
   env: {
+    commonjs: true,
     es2021: true,
     node: true,
   },
   extends: [
     'airbnb-base',
+    'airbnb-typescript/base',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
   ],
@@ -17,6 +19,7 @@ module.exports = {
       files: 'test/*',
       rules: {
         'import/extensions': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
       },
     },
   ],
@@ -24,6 +27,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    project: './tsconfig.json',
   },
   plugins: [
     '@typescript-eslint',
