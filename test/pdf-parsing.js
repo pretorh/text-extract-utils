@@ -1,10 +1,15 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
+const Path = require('path');
 const { PdfParser } = require('../dist');
 
+function absolutePath(s) {
+  return Path.resolve(process.cwd(), 'test', s);
+}
+
 const testPdfFile = {
-  file: './test/data/test-PDF-file.pdf',
-  protectedFile: './test/data/test-password-PDF-file.pdf',
+  file: absolutePath('./data/Test-PDF-file.pdf'),
+  protectedFile: absolutePath('./data/Test-password-PDF-file.pdf'),
   lines: {
     all: [
       'Test PDF file',
