@@ -34,5 +34,14 @@ describe('PDF parsing', () => {
       const lines = await PdfParser.readAllLines(testPdfFile.protectedFile, { password: 'OpenPassword' });
       expect(lines).to.have.same.members(testPdfFile.lines.all);
     });
+
+    it('fails for invalid password (does not loop indefinitely)', async () => {
+      let success = false;
+      try {
+        await PdfParser.readAllLines(testPdfFile.protectedFile, { password: 'INVALID' });
+        success = true;
+      } catch { /* ignored */ }
+      expect(success).to.equals(false);
+    });
   });
 });
