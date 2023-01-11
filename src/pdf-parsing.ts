@@ -4,15 +4,13 @@ interface IReadOptions {
   password?: string;
 }
 
-const NO_PASSWORD_GIVEN_REASON = 1;
-
 export default class PdfParser {
   public static async readAllLines(file: string, options: IReadOptions = {}): Promise<string[]> {
-    const passwordHandler = (callback: (password: string) => void, reason: string) => {
-      const reasonAsInt = parseInt(reason, 10);
-
-      if (reasonAsInt === NO_PASSWORD_GIVEN_REASON) {
-        callback(options.password || '');
+    let firstPasswordRequest = true;
+    const passwordHandler = (callback: (password: string) => void) => {
+      if (firstPasswordRequest && options.password) {
+        callback(options.password);
+        firstPasswordRequest = false;
       } else {
         throw new Error('Failed to open protected PDF file');
       }
