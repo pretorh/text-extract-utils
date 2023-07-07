@@ -1,6 +1,6 @@
 {
   "name": "text-extract-utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Utilities to extract and parse text from strings, documents",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
