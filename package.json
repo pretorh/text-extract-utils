@@ -26,6 +26,6 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "pdf-text-reader": "^3.0.2"
+    "pdf-text-reader": "^4.0.0"
   }
 }
