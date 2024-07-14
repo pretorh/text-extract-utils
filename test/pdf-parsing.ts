@@ -1,9 +1,9 @@
-const { describe, it } = require('mocha');
-const { expect } = require('chai');
-const Path = require('path');
-const { PdfParser } = require('../dist');
+import { describe, it } from 'mocha';
+import { expect } from 'chai';
+import Path from 'path';
+import { PdfParser } from '../src';
 
-function absolutePath(s) {
+function absolutePath(s: string) {
   return Path.resolve(process.cwd(), 'test', s);
 }
 

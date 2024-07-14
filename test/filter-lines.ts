@@ -1,6 +1,6 @@
-const { describe, it } = require('mocha');
-const { expect } = require('chai');
-const { filterLines } = require('../dist');
+import { describe, it } from 'mocha';
+import { expect } from 'chai';
+import { filterLines } from '../src';
 
 describe('text filtering', () => {
   describe('filterLines', () => {
@@ -14,7 +14,7 @@ describe('text filtering', () => {
     ];
 
     it('returns the lines between the `before` and `after` items', () => {
-      const filtered = filterLines(lines, 'beginning line', 'block ends');
+      const filtered = filterLines(lines, /beginning line/, /block ends/);
       expect(filtered).to.have.same.members(['c', 'd']);
     });
 
